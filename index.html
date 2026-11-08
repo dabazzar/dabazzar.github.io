@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark">
   <meta name="theme-color" content="#101615">
-  <meta name="description" content="大巴扎助手是一款大巴扎战绩记录与分享插件，自动同步游戏战绩到微信小程序。支持 macOS Apple 芯片与 Windows x64，免费下载。">
-  <meta name="keywords" content="大巴扎,大巴扎战绩,战绩记录,战绩分享,大巴扎插件,微信小程序,大巴扎助手,BazzarHelper,The Bazaar">
+  <meta name="description" content="大巴扎助手是一款大巴扎战绩记录与分享工具，自动同步游戏战绩到微信小程序。免费下载 macOS Apple 芯片、Windows x64 与 Android 版本。">
+  <meta name="keywords" content="大巴扎,大巴扎战绩,战绩记录,战绩分享,大巴扎插件,大巴扎安卓版,微信小程序,大巴扎助手,BazzarHelper,The Bazaar">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <meta name="author" content="BazzarHelper">
   <link rel="canonical" href="https://bazzarhelper.com/">
@@ -23,21 +23,44 @@
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "大巴扎助手",
-      "alternateName": "BazzarHelper",
-      "url": "https://bazzarhelper.com/",
-      "downloadUrl": "https://github.com/dabazzar/BazzarHelper/releases/tag/v0.1.7",
-      "softwareVersion": "0.1.7",
-      "applicationCategory": "GameApplication",
-      "operatingSystem": "macOS, Windows",
-      "inLanguage": "zh-CN",
-      "description": "大巴扎战绩记录与分享插件，自动同步游戏战绩到微信小程序。",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "CNY"
-      }
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://bazzarhelper.com/#desktop",
+          "name": "大巴扎助手",
+          "alternateName": "BazzarHelper",
+          "url": "https://bazzarhelper.com/",
+          "downloadUrl": "https://github.com/dabazzar/BazzarHelper/releases/tag/v0.1.7",
+          "softwareVersion": "0.1.7",
+          "applicationCategory": "GameApplication",
+          "operatingSystem": "macOS, Windows",
+          "inLanguage": "zh-CN",
+          "description": "大巴扎战绩记录与分享插件，自动同步游戏战绩到微信小程序。",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "CNY"
+          }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://bazzarhelper.com/#android",
+          "name": "大巴扎助手 Android 版",
+          "alternateName": "BazaarHelper for Android",
+          "url": "https://bazzarhelper.com/#android",
+          "downloadUrl": "https://github.com/dabazzar/BazaarHelperAndroid/releases/tag/bazaar-helper-v0.1.7",
+          "softwareVersion": "0.1.7",
+          "applicationCategory": "GameApplication",
+          "operatingSystem": "Android 10+",
+          "inLanguage": "zh-CN",
+          "description": "安卓端大巴扎助手，在手机上启动游戏、显示战斗悬浮计时，并在结算后同步战绩到微信小程序。",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "CNY"
+          }
+        }
+      ]
     }
   </script>
   <style>
@@ -98,6 +121,7 @@
     .title-line { display: block; white-space: nowrap; }
     .product-intro { max-width: 520px; margin-top: 28px; }
     .product-intro-item { padding-left: 15px; border-left: 1px solid var(--line); }
+    .product-intro-item + .product-intro-item { margin-top: 14px; }
     .product-intro-title { margin: 0 0 6px; color: var(--gold); font-size: 13px; font-weight: 650; }
     .product-intro-copy { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.75; }
     .hero-side { align-self: stretch; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; gap: 22px; padding-left: 42px; border-left: 1px solid var(--line); }
@@ -112,8 +136,8 @@
     .meta-value { margin: 0; font-size: 20px; font-weight: 600; }
     .meta-note { margin: 9px 0 0; color: var(--quiet); font-size: 12px; line-height: 1.7; }
 
-    .downloads { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .download-card { min-width: 0; padding: 32px 36px 34px; }
+    .downloads { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .download-card { min-width: 0; padding: 32px 30px 34px; }
     .download-card + .download-card { border-left: 1px solid var(--line); }
     .platform { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
     .platform-title { display: flex; align-items: center; gap: 13px; }
@@ -122,7 +146,7 @@
     h2 { margin: 0; font-size: 21px; font-weight: 620; letter-spacing: -.2px; }
     .arch { margin-top: 3px; color: var(--quiet); font-size: 12px; }
     .file-size { color: var(--gold-light); font-size: 13px; font-weight: 650; white-space: nowrap; }
-    .filename { margin: 24px 0 0; overflow-wrap: anywhere; color: #cad2cc; font-family: "SFMono-Regular", Consolas, monospace; font-size: 12px; line-height: 1.6; }
+    .filename { margin: 24px 0 0; overflow-wrap: anywhere; color: #cad2cc; font-family: "SFMono-Regular", Consolas, monospace; font-size: 11.5px; line-height: 1.6; }
     .hash-row { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; margin-top: 11px; padding: 12px 12px 12px 14px; border: 1px solid var(--line-soft); border-radius: 5px; background: rgba(10, 15, 13, .42); }
     .hash { min-width: 0; overflow: hidden; color: #8c9a91; font-family: "SFMono-Regular", Consolas, monospace; font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
     .copy { padding: 4px 7px; border: 0; background: transparent; color: #9fada4; cursor: pointer; font-size: 11px; }
@@ -133,7 +157,7 @@
     .button.primary { border-color: var(--gold); background: var(--gold); color: #17201d; }
     .button.primary:hover { border-color: #e4c77d; background: #e4c77d; }
 
-    .sources { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; padding: 36px 4%; }
+    .sources { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; padding: 36px 4%; }
     .source { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 18px 0; border-bottom: 1px solid var(--line-soft); text-decoration: none; }
     .source:hover .source-title { color: var(--gold-light); }
     .source-title { display: block; font-size: 14px; font-weight: 620; transition: color 150ms ease; }
@@ -150,14 +174,17 @@
     .acknowledgement-links a:hover { border-color: var(--gold); color: var(--gold-light); }
     footer { display: flex; justify-content: space-between; gap: 24px; margin: 46px 4% 0; padding-top: 20px; border-top: 1px solid var(--line-soft); color: #708077; font-size: 11px; }
 
+    @media (max-width: 1000px) {
+      .downloads { grid-template-columns: 1fr; }
+      .download-card + .download-card { border-top: 1px solid var(--line); border-left: 0; }
+    }
+
     @media (max-width: 760px) {
       main { width: min(100% - 30px, 600px); padding-top: 24px; }
       .hero { grid-template-columns: 1fr; gap: 34px; padding: 58px 4% 42px; }
       h1 { font-size: clamp(30px, 9vw, 48px); letter-spacing: -1.8px; }
       .product-intro { margin-top: 24px; }
-      .downloads { grid-template-columns: 1fr; }
       .download-card { padding: 28px 4%; }
-      .download-card + .download-card { border-top: 1px solid var(--line); border-left: 0; }
       .sources { grid-template-columns: 1fr; gap: 0; }
       .hero-side { justify-content: flex-start; gap: 22px; padding-left: 0; border-left: 0; }
       .mini-program-badge { width: min(320px, 100%); }
@@ -181,7 +208,7 @@
         <div><p class="eyebrow">BazzarHelper</p><p class="brand-name">大巴扎助手</p></div>
       </div>
       <div class="header-meta">
-        <span class="version">当前版本 0.1.7</span>
+        <span class="version">桌面版 0.1.7 · Android 版 0.1.7</span>
         <a class="github-link" href="https://github.com/dabazzar/BazzarHelper" target="_blank" rel="noreferrer" aria-label="打开 BazzarHelper GitHub 仓库" title="GitHub 仓库">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.23c0 4.52 2.87 8.35 6.84 9.71.5.1.68-.22.68-.49 0-.24-.01-1.04-.01-1.89-2.78.62-3.37-1.2-3.37-1.2-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.63.07-.63 1 .07 1.54 1.06 1.54 1.06.9 1.57 2.35 1.12 2.92.86.09-.67.35-1.12.64-1.38-2.22-.26-4.56-1.14-4.56-5.08 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.27 2.75 1.05A9.3 9.3 0 0 1 12 6.36c.85 0 1.7.12 2.5.35 1.91-1.32 2.74-1.05 2.74-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.95-2.35 4.82-4.58 5.07.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.6.69.49A10.24 10.24 0 0 0 22 12.23C22 6.58 17.52 2 12 2Z"/></svg>
         </a>
@@ -193,12 +220,16 @@
 
     <section class="hero">
       <div class="hero-copy">
-        <p class="kicker">DESKTOP CLIENT</p>
+        <p class="kicker">DESKTOP &amp; ANDROID</p>
         <h1><span class="title-line">大巴扎图鉴与战绩，</span><span class="title-line">记录与分享。</span></h1>
         <div class="product-intro" aria-label="产品介绍">
           <section class="product-intro-item">
             <p class="product-intro-title">桌面客户端</p>
             <p class="product-intro-copy">自动采集本机游戏战绩，并在后台同步上传。支持 macOS Apple 芯片与 Windows 64 位系统。</p>
+          </section>
+          <section class="product-intro-item">
+            <p class="product-intro-title">安卓客户端</p>
+            <p class="product-intro-copy">在手机上启动游戏，只读采集真实对局，战斗时显示可拖动的悬浮计时，结算后同步到微信小程序。</p>
           </section>
         </div>
       </div>
@@ -240,14 +271,28 @@
         <div class="hash-row"><code class="hash">7f1b37e9ebbb10f80ae64b7abb2de0722643b28b2b0c79dee5050ea5a30ba8bf</code><button class="copy" type="button" data-hash="7f1b37e9ebbb10f80ae64b7abb2de0722643b28b2b0c79dee5050ea5a30ba8bf">复制 SHA-256</button></div>
         <div class="card-actions"><a class="button primary" href="https://github.com/dabazzar/BazzarHelper/releases/tag/v0.1.7">GitHub 下载</a><a class="button" href="https://pan.quark.cn/s/55c2f95f1cea" target="_blank" rel="noreferrer">夸克网盘</a></div>
       </article>
+
+      <article class="download-card" id="android">
+        <div class="platform">
+          <div class="platform-title">
+            <span class="platform-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85-.29-.15-.65-.06-.83.22l-1.88 3.24a11.463 11.463 0 0 0-8.94 0L5.65 5.67c-.19-.29-.58-.38-.87-.2-.28.18-.37.54-.22.83L6.4 9.48C3.3 11.25 1.28 14.44 1 18h22c-.28-3.56-2.3-6.75-5.4-8.52zM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z"/></svg></span>
+            <div><h2>Android</h2><div class="arch">Android 10+ · ARM64</div></div>
+          </div>
+          <span class="file-size">38.7 MB</span>
+        </div>
+        <p class="filename">BazaarHelper-0.1.7.apk</p>
+        <div class="hash-row"><code class="hash">8830f96a3aba56c08a21b32ecd73b02944ac054d10d24e80643a000bae579bef</code><button class="copy" type="button" data-hash="8830f96a3aba56c08a21b32ecd73b02944ac054d10d24e80643a000bae579bef">复制 SHA-256</button></div>
+        <div class="card-actions"><a class="button primary" href="https://github.com/dabazzar/BazaarHelperAndroid/releases/tag/bazaar-helper-v0.1.7">GitHub 下载</a><a class="button" href="https://pan.quark.cn/s/55c2f95f1cea" target="_blank" rel="noreferrer">夸克网盘</a></div>
+      </article>
     </section>
 
     <section class="sources" aria-label="下载来源">
-      <a class="source" href="https://github.com/dabazzar/BazzarHelper/releases/tag/v0.1.7"><span><span class="source-title">GitHub Release</span><span class="source-note">版本记录与安装包</span></span><span class="arrow">↗</span></a>
-      <a class="source" href="https://pan.quark.cn/s/55c2f95f1cea" target="_blank" rel="noreferrer"><span><span class="source-title">夸克网盘</span><span class="source-note">国内备用下载地址</span></span><span class="arrow">↗</span></a>
+      <a class="source" href="https://github.com/dabazzar/BazzarHelper/releases/tag/v0.1.7"><span><span class="source-title">GitHub Release</span><span class="source-note">桌面端版本记录与安装包</span></span><span class="arrow">↗</span></a>
+      <a class="source" href="https://github.com/dabazzar/BazaarHelperAndroid/releases/tag/bazaar-helper-v0.1.7"><span><span class="source-title">Android Release</span><span class="source-note">安卓安装包与版本记录</span></span><span class="arrow">↗</span></a>
+      <a class="source" href="https://pan.quark.cn/s/55c2f95f1cea" target="_blank" rel="noreferrer"><span><span class="source-title">夸克网盘</span><span class="source-note">桌面端与 Android 国内备用下载</span></span><span class="arrow">↗</span></a>
     </section>
 
-    <aside class="notice"><strong>首次打开提示：</strong>当前安装包未进行开发者签名。macOS 请在“系统设置 → 隐私与安全性”中允许打开；Windows 若显示 SmartScreen 提示，请选择“更多信息 → 仍要运行”。你可以使用页面提供的 SHA-256 校验安装包完整性。</aside>
+    <aside class="notice"><strong>首次打开提示：</strong>桌面安装包未进行开发者签名，macOS 请在“系统设置 → 隐私与安全性”中允许打开；Windows 若显示 SmartScreen 提示，请选择“更多信息 → 仍要运行”。桌面端可以使用页面提供的 SHA-256 校验安装包完整性。<br><strong>Android 版说明：</strong>未上架应用商店，安装时需在系统提示中允许安装未知来源应用；需要 Android 10 及以上、ARM64 设备，手机与游戏同机运行，只读采集，不修改游戏 APK。</aside>
     <section class="acknowledgement" aria-label="致谢">
       <div>
         <p class="acknowledgement-label">致谢</p>
